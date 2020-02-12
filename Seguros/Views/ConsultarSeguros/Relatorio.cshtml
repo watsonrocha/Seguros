@@ -1,0 +1,90 @@
+﻿
+<img src="~/images/Zurich-.jpg" height="80" width="150" />
+<br>
+<br>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" />
+
+<html lang="en" id="teste">
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <table id="minhaTabela" class="table table-bordered modal- alert-info" style="width:100%" align="center" bgcolor="#CCC">
+                <thead>
+                    <tr>
+                        <td> NOME </td>
+                        <td> CPF </td>
+                        <td> IDADE </td>
+                        <td> MARCA </td>
+                        <td> MODELO </td>
+                        <td> VALOR DO SEGURO </td>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var item in (List<ConsultarSegurosModel>)ViewBag.Relatorio)
+                        {
+
+                            <tr>
+                                <td>@item.Nome.ToString()</td>
+                                <td>@item.CPF.ToString()</td>
+                                <td>@item.Idade.ToString()</td>
+                                <td>@item.Marca.ToString()</td>
+                                <td>@item.Modelo.ToString()</td>
+                                <td>@item.Valor_Seguro.ToString()</td>
+                            </tr>
+
+                        }
+
+                    }
+            </table>
+
+            @section Scripts {
+                <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+                <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+                <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.js"></script>
+                <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+                <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+                <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+                <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+                <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+                <script>
+
+                    $(document).ready(function () {
+                        $('#minhaTabela').DataTable({
+                            dom: 'Bfrtip',
+                            buttons: [{
+                                extend: 'excel',
+                                text: 'Excel',
+                                className: 'exportExcel',
+                                filename: 'Relatorio_Zurich',
+                                exportOptions: { modifier: { page: 'all' } }
+                            },
+                            {
+                                extend: 'csv',
+                                text: 'CSV',
+                                className: 'exportExcel',
+                                filename: 'Relatorio_Zurich',
+                                exportOptions: { modifier: { page: 'all' } }
+                            },
+                            {
+                                extend: 'pdf',
+                                text: 'PDF',
+                                className: 'exportExcel',
+                                filename: 'Relatorio_Zurich',
+                                exportOptions: { modifier: { page: 'all' } }
+                            }]
+                        });
+                    });
+                </script>
+            </div>
+        </form>
+    </body>
+</html>
+    }
+
+
+
+

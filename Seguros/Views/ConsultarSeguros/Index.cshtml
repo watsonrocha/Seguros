@@ -1,0 +1,80 @@
+﻿@model ConsultarSegurosModel
+
+<img src="~/images/Zurich-.jpg" height="80" width="150" />
+<br><br>
+<form asp-controller="ConsultarSeguros" asp-action="Index" >
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="Nome">Nome:</label>
+                <input required="required" type="text" class="form-control" id="Nome" name="Nome" placeholder="Ex.: João" asp-for="Nome">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="Idade">Idade:</label>
+                <input required="required" type="text" class="form-control" id="Idade" name="Idade" placeholder="Ex.: da Silva" asp-for="Idade">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="CPF">CPF:</label>
+                <input required="required" type="text" class="form-control" id="CPF" name="CPF" placeholder="Ex.: (999.999.999-99)" maxlength="11" asp-for="CPF">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="Marca">Marca do Veiculo:</label>
+                <input type="text" class="form-control" id="Marca" name="Marca" placeholder="Ex.: Toyota" asp-for="Marca">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="Estado">Modelo do Veiculo:</label>
+                <select required="required" id="Modelo" class="form-control" name="Modelo" asp-for="Modelo">
+                    <option value="">Selecione</option>
+                    <option value="Corolla">Corolla</option>
+                    <option value="Etios">Etios</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="Valor_Veiculo">Valor do Carro:</label>
+                <input required="required" type="text" class="form-control" id="TxtValor_Veiculo" name="TxtValor_Veiculo" placeholder="Ex.: 45000" asp-for="Valor_Veiculo">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="Email">E-mail:</label>
+                <input required="required" type="email" class="form-control" id="Email" name="Email" placeholder="Ex.: email@email.com" asp-for="Email">
+            </div>
+        </div>
+    </div>   
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="Telefone">Telefone:</label>
+                <input required="required" type="tel" class="form-control" id="Telefone" name="Telefone" placeholder="Ex.: (11) 2020-3030" asp-for="Telefone">
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+               
+                <input required="required" type="hidden" class="form-control" id="Telefone" name="Telefone" placeholder="Ex.: (11) 2020-3030"  asp-for="Telefone">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <button type="submit" class="btn btn-sm btn-success">Solicitar Calculo</button>
+            <button type="submit" class="btn btn-sm btn-primary" onclick="javascript:window.location.href='../ConsultarSeguros/Relatorio'">Consultar Relatorio</button>
+        </div>
+    </div>
+</form>
+
